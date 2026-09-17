@@ -1,0 +1,6 @@
+import Link from 'next/link';
+const nav=[['/','Home'],['/smart-vending','Smart Vending'],['/how-it-works','How It Works'],['/products','Products'],['/for-employers','For Employers'],['/about-us','About Us']];
+export function Header(){return <header className="siteHeader"><Link href="/" className="logo"><img src="/shared-table-group-logo.png" alt="Shared Table Group — Good Food. Brighter Workdays."/></Link><nav>{nav.map(([href,label])=><Link href={href} key={href}>{label}</Link>)}</nav><Link className="btn small" href="/request-a-machine">Request a Machine →</Link></header>}
+export function Footer(){return <footer><img src="/shared-table-group-logo.png" alt="Shared Table Group"/><div><b>Good Food. Brighter Workdays.</b><p>Smart vending and dependable local service for workplaces across Linn & Benton Counties, Oregon.</p></div><Link href="/request-a-machine">Request a Machine →</Link></footer>}
+export function Shell({children}){return <><Header/><main>{children}</main><Footer/></>}
+export function PageHero({eyebrow,title,copy,image='/vending-workplace.jpg'}){return <section className="pageHero"><div><p className="eyebrow light">{eyebrow}</p><h1>{title}</h1><p>{copy}</p><Link className="btn" href="/request-a-machine">Request a Machine →</Link></div><img src={image} alt="Modern smart vending machine in a workplace"/></section>}
